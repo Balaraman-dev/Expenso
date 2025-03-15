@@ -1,0 +1,57 @@
+.Home-nav {
+    min-height: 60px;
+    width:93%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 1px;
+  }
+  .Add{
+    height:46px;
+    width:46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40Px;  
+    font-size: 35px;
+    color: white;
+    background: #E63C3A;
+    text-align: center;
+    border:none;
+    position: absolute;
+    bottom:45px;
+    right:109px;
+    outline:3px solid black;
+  }
+  ul {
+    width:100%;
+    height:50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    background-color: black;
+    border:2px solid white;
+    border-radius: 20px;
+    box-shadow: 2px 5px 5px gray;
+  }
+  .Home-nav li button {
+    width: 45px;
+    height:35px;
+    border-radius: 15px;
+    border: none;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Home-nav li button:hover
+  {
+    border:2px solid white;
+    background: #81807f;
+
+  }
+  .amount{
+    color:#E63C3A;
+  }

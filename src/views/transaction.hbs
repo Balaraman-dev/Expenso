@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction</title>
+    <link rel="stylesheet" href="/css/transaction.css">
+</head>
+<body>
+    <div class="phone"> 
+        <div class="header">
+            <input type="button" class="btn income" value="Income" onclick="handleTabChange(event)"> 
+            <input type="button" class="btn expense"  value="Expense" onclick="handleTabChange(event)">
+        </div>
+       <form id="trans-form" action="/auth/transactionadd" method="post">
+        {{#if msg}}
+         <p class="{{msg_type}}">{{msg}}</p>
+        {{/if}} 
+        <div class="inp_div">
+           <label for="">Date</label>
+           <input name="cdate"  type="date">
+        </div>
+        <div class="inp_div"> 
+           <label for="">Payment Method</label>
+           <input name="payment" placeholder="eg. Cash" type="text">
+        </div>
+        <div class="inp_div">
+           <label for="">Category</label>
+           <input placeholder="eg. Food" name="category" type="text">
+        </div>
+        <div class="inp_div">
+           <label for="">Amount</label>
+           <input name="amount" type="Number">
+        </div>
+        <div class="inp_div">
+           <label for="">Description</label>
+           <input name="desc" type="text">
+        </div>
+
+        <input type="hidden" name="tab" id="tab" value="income" >
+
+        <button class="footer">ADD</button>
+      </form>  
+    </div>
+</body>
+<script>
+   document.querySelectorAll(".btn").forEach(button => {
+    button.addEventListener("click", function() {
+        // Reset colors first
+        document.querySelectorAll(".btn").forEach(btn => btn.style.backgroundColor = "");
+
+        // Change background color based on button type
+        if (this.classList.contains("income")) {
+            this.style.backgroundColor = "green";
+            this.style.color = "white";
+
+        } else if (this.classList.contains("expense")) {
+            this.style.backgroundColor = "red";
+            this.style.color = "white";
+
+        }
+    });
+});
+
+    function handleTabChange(event) {
+        let tab = (event.target.value).toLowerCase();
+        document.getElementById("tab").value = tab;
+
+        console.log(tab);
+    }
+</script>
+</html>

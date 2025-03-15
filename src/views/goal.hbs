@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal</title>
+    <link rel="stylesheet" href="/css/goal.css">
+   
+</head>
+<body>
+    <div class="phone">
+        <button class="open-button" onclick="openForm()">Add Goal</button>
+        <div class="form-popup" id="myForm">
+          <form class="form-container" action="/goal" method="post">
+            <input type="text" name="goalname" placeholder="Enter Goal" required>
+            <input type="number" name="goalbudget" placeholder="Enter Budget" required>
+            <input type="date" name="gdate" class="dateg">
+            <button type="submit" class="btn" onclick="closeForm()">ADD</button>
+          </form>
+        </div>
+            {{#if msg}}
+                <p class="{{msg_type}}">{{msg}}</p>
+            {{/if}} 
+        <div class="newscroll">
+            <h4>Goals:</h4>
+            <div>
+              {{#if goals}}
+                {{#each goals}}
+                <div class="inner">
+                  <p>Goal : <span>{{this.name}}</span></p>
+                  <p>Target amount : <span>{{this.target_amount}}</span> </p>
+                  <p>Deadline : <span> {{this.deadline}} </span> </p>
+                </div>
+                {{/each}}
+              {{/if}}
+            </div>
+            {{> navbar}}
+        </div>
+    </div>
+
+    <script>
+        function openForm() {
+        document.getElementById("myForm").style.display = "block";
+
+      }
+
+        function closeForm() {
+         document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>

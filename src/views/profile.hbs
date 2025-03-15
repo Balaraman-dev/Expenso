@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <div class="phone">
+        <div>
+             <button class="btn"><a href="/auth/logout"> Log out</a></button>
+           <img class="img" src="/images/woman.png" alt="Img">
+            <div class="bord">
+                <label>User Name :</label>
+                {{#if uname}}
+                <h4>{{uname}}</h4>
+                {{/if}}
+            </div>
+            <div class="bord">
+                <label>Email : </label>
+                {{#if uemail}}
+                <h4>{{uemail}}</h4>
+                {{/if}}
+            </div>
+            <div class="future">
+                <h3 class="fut">Future View :</h3>
+                <p>Current Balance : 
+                {{#if curbalance}}  
+                <span>&#8377 {{curbalance}}</span> 
+                {{/if}}   
+                </p>
+                <p>After 5 Years :
+                    <span> &#8377 {{afterbal}}</span> 
+                </p>
+            </div>
+         </div>
+           {{> navbar}}
+        </div>
+    </div>
+</body>
+</html>

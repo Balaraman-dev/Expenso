@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dynalight&family=Galada&family=Kiwi+Maru&family=Neonderthaw&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .phone {
+    height: 605px;
+    width: 297px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    position: relative;
+    padding: 10px; 
+    overflow-y: hidden; 
+   
+  }
+  .open-button{
+    padding: 8px;
+    width: 40%;
+    margin-left: 54%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background: red;
+    border:none;
+    border-radius: 7px;
+    color:white;
+    font-size: 15px;
+  }
+  input{
+    padding: 4px 14px;
+    font-size:15px;
+    background: white;
+    border:1px solid black;
+    outline:none;
+    color:black;
+    border-radius: 7px;
+  }
+  .form-popup {
+      display: none;
+      border:1px solid black;
+      border-radius: 4px;
+      position: absolute;
+      left:9%;
+      top: 16%;
+      padding:12px;
+      background: black;
+      box-shadow: 0px 5px 20px black;
+  }
+  .dateg{
+    width: 210px;
+  }
+  .form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+  }
+  .btn{
+   width: 100%;
+   padding: 6px 0px;
+   background: #000;
+   color:white;
+   outline: none;
+   border:2px solid white;
+   border-radius: 6px;
+   font-size: 14px;
+}
+.newscroll{
+  width:100%;
+  height: 74%;
+  margin-bottom:10px ;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+input::placeholder{
+    color:rgb(118, 117, 117);
+}
+button:hover{
+    transform: scaley(95%);
+}
+h4{
+    position: absolute;
+    top:10%;
+    left:15px;
+    font-size: 17px;
+}
+
+.inner{
+  width:97%;
+  display: flex;
+  justify-content: center;
+  margin:auto;
+  border:2px solid black;
+  display: flex;
+  margin-top:10px ;
+  flex-direction: column;
+  padding:9px;
+  list-style-type: none;
+  border-radius: 15px;
+  background: #e9e7e7;
+}
+p{
+  font-weight: 300;
+}
+span{
+  font-weight: 500;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home.CSS" />
+  </head>
+  <body>
+    <div class="phone">
+      <div class="Home-header">
+      <h2 id="Home-Uname">Welcome,
+         {{#if uname}}
+          <b>{{uname}}</b>
+         {{/if}} 
+      </h2>
+      </div>
+      <div class="Home-balance">
+        <div class="balance">
+          <h2>&#8377
+            {{#if balance}}
+              <span class="amount">{{balance}}</span>
+            {{/if}} 
+          </h2>
+        </div>
+        <p id="Bal-label">Balance</p>
+      </div>
+      <div class="Home-container">
+        <div class="Home-Income">
+          <p class="inc lab">Income</p> 
+           {{#each income}}
+            <li class="inner">{{this.category_name}}- <span class="spanamt" >{{this.amount}}</span> </li>
+           {{/each}}
+        </div>
+        <div class="Home-Expenses">
+          <p class="exp lab">Expense</p>
+           {{#each expense}}
+            <li class="inner">{{this.category_name}}- <span class="spanamt">{{this.amount}}</span> </li>
+           {{/each}}
+        </div>
+      </div>
+       {{> navbar}}
+    </div> 
+  </body>
+</html>

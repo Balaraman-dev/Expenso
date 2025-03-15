@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.phone {
+  height: 605px;
+  width: 297px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 2px solid black;
+  border-radius: 30px;
+  position: relative;
+  padding: 10px;
+  background:#ffffff;
+
+}
+a{
+  text-decoration: none;
+}
+.error{
+  color:red;
+}
+#heading {
+  font-size: 30px;
+}
+#sub-heading {
+  color: rgb(80, 80, 80);
+  text-align: center;
+  font-weight: normal;
+  font-size: 15px;
+}
+#heading,
+#sub-heading {
+  user-select: none;
+}
+.form {
+  min-height: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.input-box {
+  height: 20%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.input-box input {
+  height: 45px;
+  width: 93%;
+  border-radius: 10px;
+  border: 2px solid black;
+  outline:none;
+  background-color: transparent;
+  font-size: 16px;
+}
+input::placeholder{
+  font-size: 13px;
+  color:rgb(56, 54, 54);
+}
+.input-box label {
+  position: absolute;
+  left: 50px;
+  color: rgb(53, 46, 46);
+  font-size: 13px;
+  padding: 5px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+}
+.front {
+  width: 19px;
+  position: absolute;
+  left: 22px;
+}
+#eyes {
+  width: 20px;
+  position: absolute;
+  right: 22px;
+}
+.input-box input:focus {
+  border: 2px solid black;
+  padding-left: 45px;
+  padding-right: 40px;
+  z-index: 9;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  display: none;
+}
+
+.input-box input:valid {
+  padding-left: 45px;
+  padding-right: 40px;
+}
+
+.forgot p {
+  text-align: right;
+  padding: 10px;
+}
+.forgot p a {
+  text-decoration: none;
+  font-size: 12px;
+  color: rgb(80, 80, 80);
+}
+.forgot p a:hover {
+  color: black;
+  font-weight: bold;
+}
+.register button {
+  height: 45px;
+  width: 93%;
+  border-radius: 10px;
+  border: none;
+  background-color: #e63c3a;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.register button:hover{
+    transform: scale(98%);
+}
+.footer {
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+  color: rgb(80, 80, 80);
+}
+.footer b {
+  color: black;
+}
+.bottom {
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.button {
+  display: flex;
+  gap: 30px;
+}
+.img {
+  height: 40px;
+  width: 90px;
+  border-radius: 5px;
+  page-break-after: auto;
+  padding: 20px;
+  border: none;
+  background-color: rgb(218, 218, 218);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 3px 0px;
+}
+.img img {
+  height: 20px;
+  width: 20px;
+}

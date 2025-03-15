@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistic</title>
+    <link rel="stylesheet" href="/css/statistic.css">
+</head>
+<body>
+    <div class="phone">
+        {{#if balance}}
+            <p class="head_money">&#8377 {{balance}}<span>Balance</span></p>
+        {{/if}}
+     <div >
+        {{#if msg}}
+        <p class={{msg_type}}>{{msg}}</p>
+        {{/if}}
+         <form class="headdate" action="/statistic" method="post">
+                <div>
+                 <label for="d1">From :</label>
+                 <input name="fromdate" id="d1" type="date">
+                </div>
+                <div class="second">
+                    <label for="d2">To :</label>
+                    <input name="todate" id="d2" type="date">
+                </div>
+                <button class="fnd_btn">Find</button>
+            </form>
+        </div>
+        <h4>Transactions :</h4>
+        <div class="money_trans">
+          {{#each stat_data}}     
+            <div class="trans_data">
+                <div class="innerdata">
+                    <p>{{this.category_name}}</p>
+                    <p>{{this.category_type}}</p>
+                </div>
+                <div class="innerdata">
+                    <p>{{this.date}}</p>
+                    <p class="amtcls">&#8377 {{this.amount}}</p>
+                </div>
+           </div>   
+         {{/each}}
+        </div>
+        {{> navbar}}
+    </div>    
+</body>
+</html>
