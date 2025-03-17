@@ -73,7 +73,7 @@ const login=async(req,res)=>{
         try {
             const decode = await promisify(jwt.verify)(
                 req.cookies.money_trac,
-                process.env.JWT_SECRET
+                process.env.jwt_secret
             );
             const user = await User.findById(decode.id); 
             if (user) {

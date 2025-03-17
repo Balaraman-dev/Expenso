@@ -22,6 +22,7 @@ const userprofile=async(req,res)=>{
 }
 const logout=(req,res)=>{
     res.clearCookie("money_trac");
-    res.status(200).json({message:"logged out"});
+    console.log("Logged Out");
+    return res.redirect("/login");
 };
 export default {userprofile,logout};
