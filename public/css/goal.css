@@ -41,7 +41,8 @@
     font-size: 15px;
     margin-bottom: 5px;
   }
-  input{
+  .form-container input{
+    width:80%;
     padding: 4px 8px;
     font-size:15px;
     background: white;
