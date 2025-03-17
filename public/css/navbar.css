@@ -7,6 +7,18 @@
     position: absolute;
     bottom: 1px;
   }
+  .new_head{
+    width:100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-top: 5px;
+  }
+  .new_head a{
+    text-decoration: none;
+  }
   .Add{
     height:46px;
     width:46px;
@@ -19,9 +31,6 @@
     background: #E63C3A;
     text-align: center;
     border:none;
-    position: absolute;
-    bottom:45px;
-    right:109px;
     outline:3px solid black;
   }
   ul {
