@@ -91,6 +91,9 @@
   overflow-y: scroll;
   scrollbar-width: none;
 }
+.cont_goal{
+  margin-top: 5px;
+}
 input::placeholder{
     color:rgb(118, 117, 117);
 }
