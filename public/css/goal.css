@@ -25,7 +25,7 @@
     position: relative;
     padding: 10px; 
     overflow-y: hidden; 
-   
+    max-width: 500px;    
   }
   .open-button{
     padding: 8px;

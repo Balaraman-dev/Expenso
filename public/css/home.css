@@ -22,7 +22,7 @@ body {
   border-radius: 30px;
   position: relative;
   padding: 10px;
-  
+  max-width: 500px;
 } 
 .Home-header {
   position: absolute;
@@ -30,7 +30,6 @@ body {
   left: 15px;
   right: 15px;
 }
-
 #Home-Uname {
   font-weight: normal;
   font-size: 17px;

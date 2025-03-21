@@ -27,6 +27,7 @@
     border-radius: 30px;
     position: relative;
     padding: 10px;
+    max-width: 500px;
   }
   .header{
     width:90%;

@@ -24,6 +24,7 @@ body {
   border-radius: 30px;
   padding:0px 10px;
   position: relative;
+  max-width: 500px;
 }
 .img{
     display: flex;

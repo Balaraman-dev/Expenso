@@ -24,6 +24,7 @@ body {
   position: relative;
   padding: 10px;
   background:#ffffff;
+  max-width: 500px;
 
 }
 a{
