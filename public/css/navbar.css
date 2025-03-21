@@ -1,12 +1,12 @@
 .Home-nav {
-    min-height: 60px;
-    width:80vw;
+    width:95vw;
     display: flex;
     flex-direction: column;
+    min-height: 60px;
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 4%;
+    bottom: 9%;
     max-width: 480px;
   }
   .new_head{
