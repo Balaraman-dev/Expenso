@@ -13,7 +13,7 @@ body {
   align-items: center;
 }
 .phone {
-  height: 100vh;
+
   width:100vw;
   display: flex;
   flex-direction: column;
@@ -48,10 +48,12 @@ a{
 }
 .form {
   min-height: 45%;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  
 }
 .input-box {
   height: 20%;
@@ -61,6 +63,7 @@ a{
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+  max-width: 350px;
 }
 .input-box input {
   height: 45px;
@@ -126,13 +129,13 @@ input::placeholder{
 }
 .register button {
   height: 45px;
-  width: 93%;
+  min-width: 100%;
+  padding:0px 80px;
   border-radius: 10px;
   border: none;
   background-color: #e63c3a;
   color: white;
   cursor: pointer;
-  margin-left: 10px;
   font-size: 18px;
   font-weight: 700;
 }
