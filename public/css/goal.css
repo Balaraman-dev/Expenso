@@ -107,7 +107,15 @@ h4{
     left:15px;
     font-size: 17px;
 }
+.inner-btnsflex{
+  display: flex;
+  justify-content: end;
+  gap:4px
 
+}
+.trip-inner{
+  padding: 4px;
+}
 .inner{
   width:97%;
   display: flex;
@@ -117,11 +125,25 @@ h4{
   display: flex;
   margin-top:10px ;
   flex-direction: column;
-  padding:9px;
+  padding:4px 8px; 
   list-style-type: none;
   border-radius: 15px;
   background: white;
 }
+/* Buttons for edit/delete inside goal items */
+.icon-btn{
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.edit-btn{ background: green; }
+.delete-btn{ background: red; }
 p{
   font-weight: 300;
 }

@@ -5,7 +5,7 @@ const connectDB = async () => {
   try {
   await mongoose.connect(process.env.MONGODB_URI,
   {
-    dbName: "money",
+      dbName:"money",
       serverSelectionTimeoutMS: 10000, 
       socketTimeoutMS: 45000,
   }

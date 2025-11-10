@@ -108,9 +108,26 @@ body {
 .inner{
   width:100%;
   border-bottom:1px solid gray;
-  padding:3px 0px;
-  list-style-type: decimal;
-  color:rgb(206, 202, 202);
+  list-style-type: none;
+  color:white;
+  padding:4px 8px;
+}
+.icon-btn{
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.edit-btn{
+  background: green;
+}
+.delete-btn{
+  background: blue;
 }
 .inc{
   color:green;

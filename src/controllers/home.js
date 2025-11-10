@@ -22,8 +22,14 @@ const userdatas=async(req,res)=>{
             const category = await Category.findById(transaction.category_id);
             if (category) {
                 const entry = {
+                    _id: transaction._id,
                     category_name: category.name,
                     amount: transaction.amount,
+                    description: transaction.description,
+                    payment: transaction.Payment,
+                    date: transaction.date,
+                    category_type: category.type,
+                    category_id: category._id
                 };
 
                 if (category.type === "income") {

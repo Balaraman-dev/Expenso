@@ -23,13 +23,21 @@
             {{/if}} 
         <div class="newscroll">
             <h4>Goals:</h4>
-            <div >
+            <div class="trip-inner">
               {{#if goals}}
                 {{#each goals}}
                 <div class="inner">
                   <p>Goal : <span>{{this.name}}</span></p>
                   <p>Target amount : <span>{{this.target_amount}}</span> </p>
                   <p>Deadline : <span> {{this.deadline}} </span> </p>
+                  <div class="inner-btnsflex">
+                  <form style="display:inline" method="post" action="/goal/delete">
+                    <input type="hidden" name="goalId" value="{{this._id}}">
+                    <button type="submit" class="icon-btn delete-btn" style="margin-right:8px" title="Delete">Delete</button>
+                  </form>
+                    <button class="icon-btn edit-btn" onclick='editGoal("{{this._id}}","{{this.name}}","{{this.target_amount}}","{{this.deadline}}")' title="Edit">Edit</button>
+                  </div>
+                  </div>
                 </div>
                 {{/each}}
               {{/if}}
@@ -46,6 +54,30 @@
 
         function closeForm() {
          document.getElementById("myForm").style.display = "none";
+        }
+        function editGoal(id, name, amount, deadline) {
+          const newName = prompt('Goal name', name) || name;
+          const newAmount = prompt('Target amount', amount) || amount;
+          const newDate = prompt('Deadline (YYYY-MM-DD)', deadline) || deadline;
+
+          const form = document.createElement('form');
+          form.method = 'post';
+          form.action = '/goal/update';
+
+          const add = (n, v) => {
+            const i = document.createElement('input');
+            i.type = 'hidden';
+            i.name = n;
+            i.value = v;
+            form.appendChild(i);
+          }
+          add('goalId', id);
+          add('goalname', newName);
+          add('goalbudget', newAmount);
+          add('gdate', newDate);
+
+          document.body.appendChild(form);
+          form.submit();
         }
     </script>
 </body>

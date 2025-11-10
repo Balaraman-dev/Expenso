@@ -29,17 +29,75 @@
         <div class="Home-Income">
           <p class="inc lab">Income</p> 
            {{#each income}}
-            <li class="inner">{{this.category_name}}- <span class="spanamt" >{{this.amount}}</span> </li>
+            <li class="inner"> {{this.category_name}} - <span class="spanamt" >{{this.amount}}</span>
+              <form style="display:inline" method="post" action="/auth/transactiondelete">
+                <input type="hidden" name="transactionId" value="{{this._id}}">
+                <button type="submit" class="icon-btn delete-btn" style="margin-left:8px" title="Delete">
+                  <!-- trash icon -->
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6h18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </form>
+              <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
+                <!-- pencil icon -->
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 7l3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </li>
            {{/each}}
         </div>
         <div class="Home-Expenses">
           <p class="exp lab">Expense</p>
            {{#each expense}}
-            <li class="inner">{{this.category_name}} - <span class="spanamt">{{this.amount}}</span> </li>
+            <li class="inner">{{this.category_name}} - <span class="spanamt">{{this.amount}}</span>
+              <form style="display:inline" method="post" action="/auth/transactiondelete">
+                <input type="hidden" name="transactionId" value="{{this._id}}">
+                <button type="submit" style="margin-left:8px">Delete</button>
+              </form>
+              <button onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")'>Edit</button>
+            </li>
            {{/each}}
         </div>
       </div>
        {{> navbar}}
     </div> 
   </body>
+      <script>
+        function editTransaction(id, category, amount, description, payment, date, tab) {
+          const newCategory = prompt('Category', category) || category;
+          const newAmount = prompt('Amount', amount) || amount;
+          const newDesc = prompt('Description', description || '') || description;
+          const newPayment = prompt('Payment method', payment || '') || payment;
+          const newDate = prompt('Date (YYYY-MM-DD)', (new Date(date)).toISOString().split('T')[0]) || date;
+
+          const form = document.createElement('form');
+          form.method = 'post';
+          form.action = '/auth/transactionedit';
+
+          const add = (name, value) => {
+            const i = document.createElement('input');
+            i.type = 'hidden';
+            i.name = name;
+            i.value = value;
+            form.appendChild(i);
+          }
+
+          add('transactionId', id);
+          add('category', newCategory);
+          add('amount', newAmount);
+          add('desc', newDesc);
+          add('payment', newPayment);
+          add('cdate', newDate);
+          add('tab', tab || 'expense');
+
+          document.body.appendChild(form);
+          form.submit();
+        }
+      </script>
 </html>
