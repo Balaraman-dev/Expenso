@@ -58,9 +58,23 @@
             <li class="inner">{{this.category_name}} - <span class="spanamt">{{this.amount}}</span>
               <form style="display:inline" method="post" action="/auth/transactiondelete">
                 <input type="hidden" name="transactionId" value="{{this._id}}">
-                <button type="submit" style="margin-left:8px">Delete</button>
+                <button type="submit" class="icon-btn delete-btn" style="margin-left:8px" title="Delete">
+                  <!-- trash icon -->
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6h18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
               </form>
-              <button onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")'>Edit</button>
+              <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
+                <!-- pencil icon -->
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 7l3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </li>
            {{/each}}
         </div>
