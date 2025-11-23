@@ -1,7 +1,6 @@
 import connectDB from "../config/database.js";
 import Goal from "../models/goals.js";
 
-
 connectDB();
 const goals=async(req,res)=>{
     const userId = req.user ? req.user.id : null; 
@@ -40,7 +39,7 @@ const goals=async(req,res)=>{
 
 export default{goals};
 
-// Update a goal
+
 const goalUpdate = async (req, res) => {
     const userId = req.user ? req.user.id : null;
     const { goalId, goalname, goalbudget, gdate } = req.body;
@@ -59,7 +58,6 @@ const goalUpdate = async (req, res) => {
     }
 }
 
-// Delete a goal
 const goalDelete = async (req, res) => {
     const userId = req.user ? req.user.id : null;
     const { goalId } = req.body;

@@ -3,7 +3,6 @@ import Transaction from "../models/transaction.js";
 import Category from "../models/category.js";
 connectDB();
 
-
 const transactionadd = async (req, res) => {
     const userId = req.user ? req.user.id : null;
     const { cdate, payment, category, amount, desc, tab } = req.body;
@@ -36,7 +35,7 @@ const transactionadd = async (req, res) => {
 
 }
 
-// Update an existing transaction (and its category name/type)
+
 const transactionUpdate = async (req, res) => {
     const userId = req.user ? req.user.id : null;
     const { transactionId, cdate, payment, category, amount, desc, tab } = req.body;
@@ -48,7 +47,6 @@ const transactionUpdate = async (req, res) => {
         const tx = await Transaction.findOne({ _id: transactionId, user_id: userId });
         if (!tx) return res.status(404).render("transaction", { msg: "Transaction not found", msg_type: "error" });
 
-        // update category: either update existing category doc or create new
         let cat = await Category.findById(tx.category_id);
         if (cat) {
             cat.name = category || cat.name;
@@ -74,7 +72,7 @@ const transactionUpdate = async (req, res) => {
     }
 }
 
-// Delete a transaction
+
 const transactionDelete = async (req, res) => {
     const userId = req.user ? req.user.id : null;
     const { transactionId } = req.body;
@@ -84,7 +82,6 @@ const transactionDelete = async (req, res) => {
         const tx = await Transaction.findOneAndDelete({ _id: transactionId, user_id: userId });
         if (!tx) return res.status(404).render('transaction', { msg: 'Transaction not found', msg_type: 'error' });
 
-        // Optionally remove category if no other transactions use it
         try {
             const other = await Transaction.findOne({ category_id: tx.category_id });
             if (!other) {

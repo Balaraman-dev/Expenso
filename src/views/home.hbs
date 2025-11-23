@@ -9,72 +9,78 @@
   <body>
     <div class="phone">
       <div class="Home-header">
-      <h2 id="Home-Uname">Welcome,
-         {{#if uname}}
-          <b>{{uname}}</b>
-         {{/if}} 
-      </h2>
+        <h2 id="Home-Uname">Welcome,
+           {{#if uname}}
+             <b>{{uname}}</b>
+           {{/if}}
+        </h2>
       </div>
       <div class="Home-balance">
         <div class="balance">
           <h2>&#8377
             {{#if balance}}
               <span class="amount">{{balance}}</span>
-            {{/if}} 
+            {{/if}}
           </h2>
         </div>
         <p id="Bal-label">Balance</p>
       </div>
       <div class="Home-container">
         <div class="Home-Income">
-          <p class="inc lab">Income</p> 
+          <p class="inc lab">Income</p>
            {{#each income}}
-            <li class="inner"> {{this.category_name}} - <span class="spanamt" >{{this.amount}}</span>
-              <form style="display:inline" method="post" action="/auth/transactiondelete">
-                <input type="hidden" name="transactionId" value="{{this._id}}">
-                <button type="submit" class="icon-btn delete-btn" style="margin-left:8px" title="Delete">
-                  <!-- trash icon -->
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6h18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <li class="inner">
+              <div class="item-left">{{this.category_name}} <h5 class="spanamt" > ₹ {{this.amount}}</h5></div>
+              <div class="actions">
+                <form style="display:inline" method="post" action="/auth/transactiondelete">
+                  <input type="hidden" name="transactionId" value="{{this._id}}">
+                  <button type="submit" class="icon-btn trash-btn" title="Delete">
+                    <!-- trash icon with three inner lines -->
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 6h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 6v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 13h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </form>
+                <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
+                  <!-- pencil icon -->
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 7l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </button>
-              </form>
-              <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
-                <!-- pencil icon -->
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M14 7l3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              </div>
             </li>
            {{/each}}
         </div>
         <div class="Home-Expenses">
           <p class="exp lab">Expense</p>
            {{#each expense}}
-            <li class="inner">{{this.category_name}} - <span class="spanamt">{{this.amount}}</span>
-              <form style="display:inline" method="post" action="/auth/transactiondelete">
-                <input type="hidden" name="transactionId" value="{{this._id}}">
-                <button type="submit" class="icon-btn delete-btn" style="margin-left:8px" title="Delete">
-                  <!-- trash icon -->
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6h18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 6v12a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 11v6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <li class="inner">
+              <div class="item-left">{{this.category_name}}  <h5 class="spanamt"> ₹ {{this.amount}}</h5></div>
+              <div class="actions">
+                <form style="display:inline" method="post" action="/auth/transactiondelete">
+                  <input type="hidden" name="transactionId" value="{{this._id}}">
+                  <button type="submit" class="icon-btn trash-btn" title="Delete">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 6h20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8 6v12a4 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 13h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 16h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </form>
+                <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 7l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </button>
-              </form>
-              <button class="icon-btn edit-btn" onclick='editTransaction("{{this._id}}","{{this.category_name}}","{{this.amount}}","{{this.description}}","{{this.payment}}","{{this.date}}","{{this.category_type}}")' title="Edit">
-                <!-- pencil icon -->
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 21v-3l11-11 3 3L6 21H3z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M14 7l3 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              </div>
             </li>
            {{/each}}
         </div>

@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Open Sans"; 
+  font-family: "Open Sans";
 }
 body {
   height: 100vh;
@@ -89,7 +89,8 @@ body {
   border-left:1px solid white;
 }
 .spanamt{
-  font-weight: 600;
+  font-weight: 800;
+  font-size:14px;
 }
 .amount{
   color:red;}
@@ -108,9 +109,12 @@ body {
 .inner{
   width:100%;
   border-bottom:1px solid gray;
-  list-style-type: none;
-  color:white;
-  padding:4px 8px;
+  padding:3px 0px;
+  list-style-type: decimal;
+  color:rgb(206, 202, 202);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .icon-btn{
   border: none;
@@ -127,7 +131,22 @@ body {
   background: green;
 }
 .delete-btn{
-  background: blue;
+  background: black;
+}
+.trash-btn{
+  border: none;
+  color: red; 
+  padding :5px 6px;
+}
+.icon-btn svg{
+  width: 18px;
+  height: 18px;
+}
+.actions{
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
 }
 .inc{
   color:green;
